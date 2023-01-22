@@ -3,9 +3,9 @@ function youtube_playlist_is_broken() {
         playlistVideoListRenderer = ytInitialData.contents.twoColumnBrowseResultsRenderer.tabs[0].tabRenderer.content.sectionListRenderer.contents[0].itemSectionRenderer.contents[0].playlistVideoListRenderer;
         playlistId = new URLSearchParams(window.location.search).entries().next().value[1];
         if (playlistVideoListRenderer.playlistId != playlistId) {
-            throw false;
+            throw true;
         }
-        videos = ytInitialData.contents.twoColumnBrowseResultsRenderer.tabs[0].tabRenderer.content.sectionListRenderer.contents[0].itemSectionRenderer.contents[0].playlistVideoListRenderer.contents;
+        videos = playlistVideoListRenderer.contents;
     } catch (error) {
         alert('Refresh page to load ytInitialData');
         return true;
