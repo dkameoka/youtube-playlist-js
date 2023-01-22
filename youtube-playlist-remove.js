@@ -1,7 +1,4 @@
 function youtube_playlist_is_broken() {
-    if (typeof ytInitialData == 'undefined') {
-        return false;
-    }
     try {
         videos = ytInitialData.contents.twoColumnBrowseResultsRenderer.tabs[0].tabRenderer.content.sectionListRenderer.contents[0].itemSectionRenderer.contents[0].playlistVideoListRenderer.contents;
     } catch (error) {
