@@ -14,7 +14,7 @@ async function youtube_playlist_add_all(playlist,limit) {
     for (let vi = videos_buttons.length - 1;vi >= 0 && added < limit;vi--) {
         videos_buttons[vi].click();
 
-        // Wait for menu to popup.
+        // Wait for menu to pop-up.
         if (!await youtube_wait_for(function () {
             menu_popup = document.querySelector('ytd-menu-popup-renderer');
             return (menu_popup && menu_popup.parentElement.parentElement.style.display == '');
@@ -38,7 +38,7 @@ async function youtube_playlist_add_all(playlist,limit) {
             continue;
         }
 
-        // Wait for add option menu to popup.
+        // Wait for add option menu to pop-up.
         if (!await youtube_wait_for(function () {
             paper_dialog = document.querySelector('tp-yt-paper-dialog');
             return (paper_dialog && paper_dialog.style.display == '');

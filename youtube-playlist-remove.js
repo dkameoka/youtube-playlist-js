@@ -33,14 +33,14 @@ async function youtube_wait_for(callback,attempts) {
 async function youtube_playlist_remove(count) {
     deleted = 0;
     for (let c = 0;c < count;c++) {
-        // Detect YouTube playlist disappearing videos bug and stop.
+        // Detect YouTube's playlist-disappearing-videos bug and stop.
         if (youtube_playlist_is_broken()) {
             console.log('Detected YouTube playlist bug. Refresh page.');
             alert('Detected YouTube playlist bug. Refresh page.');
             return;
         }
 
-        // Open first video's menu.
+        // Open the first video's menu.
         first_button = document.querySelector('ytd-playlist-video-renderer button');
         if (first_button == null) {
             if (deleted == 0) {
@@ -51,7 +51,7 @@ async function youtube_playlist_remove(count) {
         }
         first_button.click();
 
-        // Wait for menu to popup.
+        // Wait for menu to pop-up.
         if (!await youtube_wait_for(function () {
             iron_dropdown = document.querySelector('tp-yt-iron-dropdown[class="style-scope ytd-popup-container"]');
             return (iron_dropdown && iron_dropdown.style.display == '');
